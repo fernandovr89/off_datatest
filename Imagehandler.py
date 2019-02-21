@@ -40,6 +40,8 @@ class Imagehandler(object):
         thresholdImage = self.__convertImagetoBlackWhite()  #B & W with adaptive threshold
         thresholdImage = cv.Canny(thresholdImage, 100, 200) #Edges by canny edge detection
         contours, hierarchy = cv.findContours(thresholdImage, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+        thresholdImage, contours, hierarchy = cv.findContours(thresholdImage, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+
         self.Contours = contours
          #uncomment this to see the contours on the image
          #cv2.drawContours(thresholdImage, contours, -1, (0,255,0), 3)
